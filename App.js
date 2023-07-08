@@ -1,24 +1,34 @@
-import React from 'react';
-import {StyleSheet, Text, SafeAreaView} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import HomeScreen from './components/HomeScreen'
+import HeaderIcon from './components/HeaderIcon'
+
+function DetailsScreen() {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Details Screen</Text>
+    </View>
+  )
+}
+
+const Stack = createNativeStackNavigator()
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.text}>Hello World!</Text>
-    </SafeAreaView>
-  );
-};
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerTitle: () => <HeaderIcon /> }}>
+        <Stack.Screen
+          name='Home'
+          component={HomeScreen}
+          options={{
+            title: 'Colorblind Style',
+          }}
+        />
+        <Stack.Screen name='Details' component={DetailsScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
+}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  text: {
-    fontSize: 25,
-    fontWeight: '500',
-  },
-});
-
-export default App;
+export default App
