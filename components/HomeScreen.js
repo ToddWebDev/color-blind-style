@@ -11,7 +11,7 @@ const HomeScreen = ({ navigation }) => (
       <TouchableHighlight
         style={styles.button}
         underlayColor={'#dd5252'}
-        onPress={() => navigation.navigate('Details')}
+        onPress={() => navigation.navigate('ColorMatchTabs')}
       >
         <View>
           <Text style={styles.buttonText}>START</Text>
